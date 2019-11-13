@@ -115,16 +115,28 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
+    config.add_show_field 'id', label: 'Identifier'
+    config.add_show_field 'source', Label: 'Source'
     config.add_show_field 'title', label: 'Title'
     config.add_show_field 'contributors', label: 'Author'
-    config.add_show_field 'author_vern_ssim', label: 'Author'
     config.add_show_field 'format', label: 'Format'
     config.add_show_field 'resource_type', label: 'Content Type'
-    config.add_show_field 'imprint', label: 'Imprint'
     config.add_show_field 'summary', label: 'Summary'
+    config.add_show_field 'imprint', label: 'Imprint'
     config.add_show_field 'source_link', label: 'source_link'
     config.add_show_field 'full_record_link', label: 'full_record_link'
+    config.add_show_field 'publication_date', label: 'publication_date'
+    config.add_show_field 'subjects', label: 'Subjects'
+    config.add_show_field 'locations', label: 'Locations'
+    config.add_show_field 'content_type', label: 'content_type'
+    config.add_show_field 'content_format', label: 'content_format'
+    config.add_show_field 'isbns', label: 'isbns'
+    config.add_show_field 'issns', label: 'issns'
+    config.add_show_field 'lccn', label: 'lccn'
     config.add_show_field 'notes', label: 'notes'
+    config.add_show_field 'links', label: 'links'
+    config.add_show_field 'physical_description', label: 'physical_description'
+    config.add_show_field 'languages', label: 'languages'
 
 
     # "fielded" search configuration. Used by pulldown among other places.
