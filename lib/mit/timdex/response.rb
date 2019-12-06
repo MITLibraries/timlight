@@ -51,8 +51,8 @@ module Mit::Timdex
         return if empty? && !record? # we need this for searches only, not retrieves
         dm = mapper(response.data.record_id)
         rs.append(dm)
-      elsif response.data.search.kind_of?(Array)
-        response.data.search.each do |r|
+      elsif response.data.search.records.kind_of?(Array)
+        response.data.search.records.each do |r|
           dm = mapper(r)
           rs.append(dm)
         end
@@ -61,10 +61,12 @@ module Mit::Timdex
     end
     alias_method :docs, :documents
 
-    # short cut to response['numFound']
     def total
-      # TODO: our graphql endpoint doesn't provide this data. It should.
-      1
+      if header.data.respond_to?('search')
+        header.data.search.hits
+      else
+        1
+      end
     end
 
     def start

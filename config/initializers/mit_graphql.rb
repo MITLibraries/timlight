@@ -25,56 +25,59 @@ module TIMDEX
   Search = TIMDEX::Client.parse <<-'GRAPHQL'
     query($q: String!){
       search(searchterm: $q) {
-        alternateTitles
-        callNumbers
-        contentType
-        contents
-        contributors {
-          kind
-          value
-        }
-        dois
-        edition
-        format
-        holdings {
-          callnumber
-          collection
+        hits
+        records {
+          alternateTitles
+          callNumbers
+          contentType
+          contents
+          contributors {
+            kind
+            value
+          }
+          dois
+          edition
           format
-          location
+          holdings {
+            callnumber
+            collection
+            format
+            location
+            notes
+            summary
+          }
+          identifier
+          imprint
+          inBibliography
+          isbns
+          issns
+          languages
+          lccn
+          links {
+            kind
+            restrictions
+            text
+            url
+          }
+          literaryForm
           notes
+          numbering
+          oclcs
+          physicalDescription
+          placeOfPublication
+          publicationDate
+          publicationFrequency
+          relatedItems {
+            kind
+            value
+          }
+          relatedPlace
+          source
+          sourceLink
+          subjects
           summary
+          title
         }
-        identifier
-        imprint
-        inBibliography
-        isbns
-        issns
-        languages
-        lccn
-        links {
-          kind
-          restrictions
-          text
-          url
-        }
-        literaryForm
-        notes
-        numbering
-        oclcs
-        physicalDescription
-        placeOfPublication
-        publicationDate
-        publicationFrequency
-        relatedItems {
-          kind
-          value
-        }
-        relatedPlace
-        source
-        sourceLink
-        subjects
-        summary
-        title
       }
     }
   GRAPHQL

@@ -105,6 +105,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'imprint', label: 'Imprint'
     config.add_index_field 'literary_form', label: 'Literary Form'
     config.add_index_field 'links', label: 'Links'
+    config.add_index_field 'source', label: 'Source'
 
 
     # solr fields to be displayed in the show (single result) view
